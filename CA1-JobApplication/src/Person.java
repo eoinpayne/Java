@@ -3,10 +3,13 @@ public class Person implements IContact{
 	
 	private String firstName; //all
 	private String lastName; //all
-	//private String dob; //in GE & contractor NOT guest
+	private String dob; //in GE & contractor NOT guest
 	private String email;	// all
 	private String mobileNumber;
-	
+	private String preferredContactMethod;   //set a default that can be overridden??
+	private String preferredContactDetails;
+	private IContact contact = null;
+
 		
 	//getters & setters
 	public String getFirstName() {
@@ -21,12 +24,12 @@ public class Person implements IContact{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	//public String getDob() {
-		//return dob;
-	//}
-	//public void setDob(String dob) {
-		//this.dob = dob;
-	//}
+	public String getDob() {
+		return dob;
+	}
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 	public String getEmail() {
 		return email;
 	}
@@ -39,10 +42,33 @@ public class Person implements IContact{
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
+	public IContact getContact() {
+		return contact;
+	}
+	public void setContact(IContact contact) {
+		this.contact = contact;
+		}
+	public String getPreferredContactMethod() {
+		return preferredContactMethod;
+	}
+	public void setPreferredContactMethod(String preferredContactMethod) {
+		this.preferredContactMethod = preferredContactMethod;
+	}
+//	public String getPreferredContactDetails() {
+//	if (getPreferredContactMethod() == "phone") {
+//		return this.mobileNumber;	
+//		}
+//	else {	return this.email;	}  //if not phone, default will be email
+//	}
+	public String getPreferredContactDetails() {
+	if (getContact().toString() == "sms") {
+		return this.mobileNumber;	
+		}
+	else {	return this.email;	}  //if not phone, default will be email
+	}
 
 
-		
-	private IContact contact = null;
+	
 	
 	//constructor
 	public Person (String firstName, String lastName, String email, IContact contact){
@@ -54,6 +80,7 @@ public class Person implements IContact{
 	
 	public void sendMessage(String msg_to, String msg_from, String message){
 		contact.sendMessage(msg_to, msg_from, message);
+		System.out.println(this.firstName +". "+ message);
 	}
 	
 	

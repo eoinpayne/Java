@@ -3,6 +3,7 @@ public class GeneralEmployee extends Person implements IContact{
 	
 	private String jobTitle;
 	private double salary;
+	private String dob;
 	
 	//getters & setters
 	public String getJobTitle() {
@@ -16,10 +17,16 @@ public class GeneralEmployee extends Person implements IContact{
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	public void setdob (String dob){
+		this.dob = dob;
+	}
+	public String getdob(){		return dob;
+	}
 	
-	public GeneralEmployee(String firstName, String lastName, String email, IContact contact) {
-		super(firstName, lastName, email, contact);
-		
+	
+	public GeneralEmployee(String firstName, String lastName, String email, IContact contact, String dob) {
+		super(firstName, lastName, email, contact);		
+		this.dob = dob;
 	}
 	
 

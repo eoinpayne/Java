@@ -21,7 +21,5 @@ public class Contractor extends Person {
 	public Contractor(String firstName, String lastName, String email, IContact contact) {
 		super(firstName, lastName, email, contact);
 	
-	}
-	
-	
+	}	
 }
