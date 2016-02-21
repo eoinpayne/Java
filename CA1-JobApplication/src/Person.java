@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Person implements IContact{
 	
@@ -61,7 +62,9 @@ public class Person implements IContact{
 //	else {	return this.email;	}  //if not phone, default will be email
 //	}
 	public String getPreferredContactDetails() {
-	if (getContact().toString() == "sms") {
+		String sms = "sms";
+		String email = "email";
+	if (getContact().toString().toLowerCase().indexOf(sms)> -1){
 		return this.mobileNumber;	
 		}
 	else {	return this.email;	}  //if not phone, default will be email
@@ -82,8 +85,7 @@ public class Person implements IContact{
 		contact.sendMessage(msg_to, msg_from, message);
 		System.out.println(this.firstName +". "+ message);
 	}
-	
-	
+
 	
 }
 

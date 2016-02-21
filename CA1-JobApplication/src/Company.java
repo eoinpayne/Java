@@ -33,26 +33,40 @@ public class Company {
 		this.thankYouMessage = thankYouMessage;
 	}
 	
-	
 //	
-//	//awkard!!!!! 
-//	public void sendMessageToList(ArrayList<Object> list, Object Company, String message){
-//		for (Object p: list){			
-//			p.sendMessage(((Object) p).getEmail(), ((Company) Company).getCompanyEmail(), ((Company) Company).getThankYouMessage());
-//		
-//		
-//	System.out.println(this.thankYouMessage);
-//	}
-//}
-	
-//	public void sendConfirmationMessage(){
+//	public void sendConfirmationMessage(ArrayList <Object> atendees){
 //		
 //	}
-//	
+	
+	
+	//awkard!!!!! 
+	public void sendMessageToList(ArrayList<Person> list, Object company, String message){
+		for (Object p: list){			
+			((Person) p).sendMessage(((Person) p).getEmail(), ((Company) company).getCompanyEmail(), 
+					message);
+		
+		
+	//System.out.println(this.thankYouMessage);
+	}
+}
+	
+	public String replaceString (String stringInput, String desiredOutput){ //split up print from the logic
+		String stringToMatchLength = new String(new char[stringInput.length()]).replace("\0", desiredOutput);
+		return stringToMatchLength;
+	}
+
 	public void runEvent(){
+		String eventRunningMessage = "The event is now taking place";
+		String starsToMatchLength = new String(new char[eventRunningMessage.length()]).replace("\0", "*");
+		String star = "*";
+		
 		System.out.println();
-		System.out.println("The event is now taking place");
-		System.out.println();
+		//System.out.println(starsToMatchLength);
+		System.out.println(replaceString(eventRunningMessage, "*"));
+		System.out.println(eventRunningMessage);
+		System.out.println(replaceString(eventRunningMessage, star));
+		//System.out.println(starsToMatchLength);	
+		System.out.println();		
 	}
 	
 //	public void sendThankYouMessage(){

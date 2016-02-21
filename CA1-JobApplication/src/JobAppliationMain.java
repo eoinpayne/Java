@@ -44,29 +44,26 @@ public class JobAppliationMain {
 		// will feed object constructor
 							
 		///confirmation message
-		for (Person p: atendees){
-			System.out.println(p.getContact()); //prints SMS@2a139a55
-			System.out.println("PREFFERED!!! " + p.getPreferredContactDetails());
-			//System.out.println(p.getEmail()+ company1.getCompanyEmail()+ company1.getConfirmationMessage());
-			//p.sendMessage(p.getEmail(), company1.getCompanyEmail(), company1.getConfirmationMessage());
-		}		
+//		for (Person p: atendees){
+//			String tempContact1 = p.getContact().toString();
+//			System.out.println(p.getContact()); //prints SMS@2a139a55
+//			String tempPreferred1 = p.getPreferredContactDetails().toString();
+//			System.out.println("PREFFERED!!! " + p.getPreferredContactDetails());
+//			//System.out.println(p.getEmail()+ company1.getCompanyEmail()+ company1.getConfirmationMessage());
+//			//p.sendMessage(p.getEmail(), company1.getCompanyEmail(), company1.getConfirmationMessage());
+//		}		
 		
-//		company1.sendMessageToList(atendees, company1, company1.getConfirmationMessage()){
-//			
-//		}
 		
-		//run event
-		System.out.println();
+		//send confirmation to list		
+		company1.sendMessageToList(atendees, company1, company1.getConfirmationMessage());
+		
+		//run event		
 		company1.runEvent();
-		System.out.println();
 		
-		//thank you message
-		for (Person p: atendees){			
-			p.sendMessage(p.getEmail(), company1.getCompanyEmail(), company1.getThankYouMessage());
-		}
-		
-		
-		
+		//send thank you message to list
+		company1.sendMessageToList(atendees, company1, company1.getThankYouMessage());
+			
+				
 		// to search through and find which "person" objects are of a certain type.
 //		int count =0;
 //		for(Person p: atendees) {
