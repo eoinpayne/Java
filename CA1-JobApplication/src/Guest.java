@@ -1,5 +1,5 @@
 
-public class Guest extends Contractor{
+public class Guest extends Contractor implements IContact{
 	
 	
 

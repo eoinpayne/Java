@@ -1,5 +1,5 @@
 
-public class Contractor extends Person {
+public class Contractor extends Person implements IContact{
 	private String companyContact;
 	private String company;
 

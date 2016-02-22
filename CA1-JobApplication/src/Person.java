@@ -10,7 +10,6 @@ public class Person implements IContact{
 	private String preferredContactMethod;   //set a default that can be overridden??
 	private String preferredContactDetails;
 	private IContact contact = null;
-
 		
 	//getters & setters
 	public String getFirstName() {
@@ -55,25 +54,17 @@ public class Person implements IContact{
 	public void setPreferredContactMethod(String preferredContactMethod) {
 		this.preferredContactMethod = preferredContactMethod;
 	}
-//	public String getPreferredContactDetails() {
-//	if (getPreferredContactMethod() == "phone") {
-//		return this.mobileNumber;	
-//		}
-//	else {	return this.email;	}  //if not phone, default will be email
-//	}
+	//getter that determines what contact details should be returned based on what interface is being used
 	public String getPreferredContactDetails() {
 		String sms = "sms";
-		String email = "email";
-	if (getContact().toString().toLowerCase().indexOf(sms)> -1){
+		//String email = "email";
+	if (getContact().toString().toLowerCase().indexOf(sms)> -1){ //.getContact returning undesirable string
 		return this.mobileNumber;	
 		}
 	else {	return this.email;	}  //if not phone, default will be email
 	}
-
-
-	
-	
-	//constructor
+		
+	/////////////constructor
 	public Person (String firstName, String lastName, String email, IContact contact){
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -81,20 +72,17 @@ public class Person implements IContact{
 		this.contact = contact;
 	}
 	
+	//works well, but makes the SMS/EMail class redundant
 	public void sendMessage(String msg_to, String msg_from, String message){
-		contact.sendMessage(msg_to, msg_from, message);
+		//contact.sendMessage(msg_to, msg_from, message);   #### IS THIS NEEDED?		
+		System.out.println("Sending " + this.getContact() + " to " + this.getPreferredContactDetails() );
 		System.out.println(this.firstName +". "+ message);
 	}
-
+	
+//	public void sendMessage(String msg_to, String msg_from, String message){
+//		contact.sendMessage(msg_to, msg_from, message);   //#### IS THIS NEEDED?		
+//
+//	}
 	
 }
-
-
-//salary just GE
-//job title GE
-
-
-//company just Contractor
-
-//Contct guest and contractor
 

@@ -4,15 +4,15 @@ public class JobAppliationMain {
 
 	public static void main(String[] args) {
 		Company company1 = new Company();
-		
-		
-		
+					
 		//Instantiating methods of contacting objects via the IContact interface
 		IContact email = new Email();  
 		IContact sms = new SMS();
 		
 		//Instantiating Array
-		ArrayList<Person> atendees = new ArrayList<>();
+		ObjectArrayList atendees = new ObjectArrayList();
+				
+		//ArrayList<Person> atendees = new ArrayList<>();
 		
 				//start a while loop.
 			//Scanner scanner = new Scanner(new InputSteamReader(System.in))); --sout-- int age = scanner.nextInt(); --scanner.close();
@@ -23,7 +23,7 @@ public class JobAppliationMain {
 		GeneralEmployee ge1 = new GeneralEmployee("John", "Mac","abc@gmail.com", sms, "10/07/99");
 		ge1.setJobTitle("front");
 		ge1.setMobileNumber("0851178789");
-		atendees.add(ge1);
+		//atendees.add(ge1);
 		//ge1.sendMessage(ge1.getPreferredContactDetails(), company1.getCompanyEmail(), company1.getConfirmationMessage());
 		
 		Contractor c1 = new Contractor("Ace", "Ventura","ace@mail.com", email);
@@ -31,29 +31,21 @@ public class JobAppliationMain {
 		c1.setCompanyContact("steph");
 		c1.setDob("14/01/89");
 		c1.setMobileNumber("0862278789");
-		atendees.add(c1);
+		atendees.addObject(c1);
 				
 		Guest g1 = new Guest("Big", "Kahuna", "big@gmail.com", email);
 		g1.setCompany("globotec");
 		g1.setCompanyContact("Bob");
 		g1.setMobileNumber("0873378789");
-		atendees.add(g1);
+		//g1.setContact(sms);
+		g1.sendMessage(g1.getEmail(), company1.getCompanyEmail(), company1.getThankYouMessage());
+		atendees.addObject(g1);
 		
 		//!! when sending message, find a way to take the input and use that to either get email for phone
 		//"preferred contact information" -- do it through "preferred input" variable defined in loop that 
 		// will feed object constructor
 							
-		///confirmation message
-//		for (Person p: atendees){
-//			String tempContact1 = p.getContact().toString();
-//			System.out.println(p.getContact()); //prints SMS@2a139a55
-//			String tempPreferred1 = p.getPreferredContactDetails().toString();
-//			System.out.println("PREFFERED!!! " + p.getPreferredContactDetails());
-//			//System.out.println(p.getEmail()+ company1.getCompanyEmail()+ company1.getConfirmationMessage());
-//			//p.sendMessage(p.getEmail(), company1.getCompanyEmail(), company1.getConfirmationMessage());
-//		}		
-		
-		
+	
 		//send confirmation to list		
 		company1.sendMessageToList(atendees, company1, company1.getConfirmationMessage());
 		
